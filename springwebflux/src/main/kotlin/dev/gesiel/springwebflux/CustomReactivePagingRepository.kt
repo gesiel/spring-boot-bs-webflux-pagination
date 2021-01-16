@@ -9,7 +9,8 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
 @NoRepositoryBean
-interface CustomReactivePagingRepository<T, ID : Serializable> : ReactiveCrudRepository<T, ID> {
+interface CustomReactivePagingRepository<T, ID : Serializable>
+    : ReactiveCrudRepository<T, ID> {
 
     fun findAll(pageable: Pageable): Mono<Page<T>>
 
