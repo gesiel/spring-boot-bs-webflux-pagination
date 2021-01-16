@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.ReactivePageableHandlerMethodArgumentResolver
 import org.springframework.test.web.reactive.server.WebTestClient
-import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 
 class EntityControllerTest {
 
@@ -34,7 +34,7 @@ class EntityControllerTest {
     @Test
     fun `testing pagination parameters parse`() = runBlocking {
         val pageableSlot = slot<Pageable>()
-        coEvery { entityRepository.findAll(any<Pageable>()) } returns Flux.empty()
+        coEvery { entityRepository.findAll(any()) } returns Mono.empty()
 
         webTestClient
             .get()
