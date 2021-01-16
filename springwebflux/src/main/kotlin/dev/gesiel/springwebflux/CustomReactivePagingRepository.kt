@@ -7,7 +7,8 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import reactor.core.publisher.Flux
 
 @NoRepositoryBean
-interface CustomReactivePagingRepository<T, ID : Serializable> : ReactiveCrudRepository<T, ID> {
+interface CustomReactivePagingRepository<T, ID : Serializable>
+    : ReactiveCrudRepository<T, ID> {
 
     fun findAll(pageable: Pageable): Flux<T>
 
