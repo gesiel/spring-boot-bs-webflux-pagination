@@ -20,7 +20,10 @@ class BaseCustomReactivePagingRepository<T, ID : Serializable>(
         return mongoOperations.count(Query(), entityInformation.collectionName)
             .flatMap { count ->
                 mongoOperations
-                    .find(Query().with(pageable), entityInformation.javaType, entityInformation.collectionName)
+                    .find(
+                        Query().with(pageable),
+                        entityInformation.javaType,
+                        entityInformation.collectionName)
                     .collectList()
                     .map {
                         PageableExecutionUtils.getPage(it, pageable) {

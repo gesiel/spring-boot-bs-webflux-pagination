@@ -13,5 +13,4 @@ interface CustomReactivePagingRepository<T, ID : Serializable>
     : ReactiveCrudRepository<T, ID> {
 
     fun findAll(pageable: Pageable): Mono<Page<T>>
-
 }
